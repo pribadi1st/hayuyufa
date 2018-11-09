@@ -46,63 +46,72 @@ class GrammarController extends Controller
             return view('welcome');
         }
 
-        $client = new Client();
-        $words =  '';
-        for ($i=0; $i < strlen($request->grammar); $i++){
-            $words .= '%'.dechex(ord($request->grammar[$i]));
-        }
+        // $client = new Client();
+        // $words =  '';
+        // for ($i=0; $i < strlen($request->grammar); $i++){
+        //     $words .= '%'.dechex(ord($request->grammar[$i]));
+        // }
 
-        $uri = "https://chinese.yabla.com/chinese-english-pinyin-dictionary.php?define=".$words;
-        $result = $client->get($uri);
-        $response = ''.$result->getBody();
-        $crawler = new Crawler($response);
-        // $value = '';
-        $nodeValues = $crawler->filter('#segmented_results > tbody > tr > td.word')->each(function (Crawler $node ,$I) {
-         //get text
-         $item = $node->text();
-         // $value= ' '.$item;
-         // echo $item.'<br>';
-         return $item;
-        });
-
-        // $client = new Client(); //GuzzleHttp\Client
-        // $result = $client->post('http://nlp.stanford.edu:8080/parser/index.jsp', [
-        //  'headers' => [
-        //         'Content-Type' => 'application/x-www-form-urlencoded',
-        //         'Referer'     => 'http://nlp.stanford.edu:8080/parser/',
-        //  ],
-        //  'form_params' => [
-        //      //Ini yang bakal di lempar nanti
-        //      //Note : ini cuman contoh ya
-        //         'query' => $request->grammar,
-        //         'parserSelect' => 'Chinese'
-        //  ]
-        // ]);
+        // $uri = "https://chinese.yabla.com/chinese-english-pinyin-dictionary.php?define=".$words;
+        // $result = $client->get($uri);
         // $response = ''.$result->getBody();
-        // // echo $response;
         // $crawler = new Crawler($response);
-
-        // //looping crawler
-        // $nodeValues = $crawler->filter('body > div:nth-child(3) > div:nth-child(7)')->each(function (Crawler $node ,$I) {
+        // // $value = '';
+        // $nodeValues = $crawler->filter('#segmented_results > tbody > tr > td.word')->each(function (Crawler $node ,$I) {
         //  //get text
         //  $item = $node->text();
+        //  // $value= ' '.$item;
+        //  // echo $item.'<br>';
         //  return $item;
         // });
         // $node = $nodeValues[0];
-        // print_r($node);
 
-        $path = resource_path() . '/stanford-postagger-full-2018-02-27/';
-        $value = implode(" ",$nodeValues);
+        $client = new Client(); //GuzzleHttp\Client
+        $result = $client->post('http://nlp.stanford.edu:8080/parser/index.jsp', [
+         'headers' => [
+                'Content-Type' => 'application/x-www-form-urlencoded',
+                'Referer'     => 'http://nlp.stanford.edu:8080/parser/',
+         ],
+         'form_params' => [
+             //Ini yang bakal di lempar nanti
+             //Note : ini cuman contoh ya
+                'query' => $request->grammar,
+                'parserSelect' => 'Chinese'
+         ]
+        ]);
+        $response = ''.$result->getBody();
+        // echo $response;
+        $crawler = new Crawler($response);
 
-        $pos = new \StanfordNLP\POSTagger(
-          $path . 'models/chinese-distsim.tagger',
-          $path . 'stanford-postagger-3.9.1.jar'
-        );
-        $result = $pos->tag(explode(' ', $value));
+        //looping crawler
+        $nodeValues = $crawler->filter('body > div:nth-child(3) > div:nth-child(7)')->each(function (Crawler $node ,$I) {
+         //get text
+         $item = $node->text();
+         return $item;
+        });
+        $node = str_replace(" ","",$nodeValues[0]);
+        $node = explode("\n",$node);
+        $node = array_filter($node);
+        
+        $nodeValues =[];
         $tags = [];
-        foreach ($result[0] as $key => $value) {
-            array_push($tags, $value[1]);
+        foreach($node as $key => $value){
+           array_push($tags,explode('/',$value)[1]) ;
+           array_push($nodeValues,explode('/',$value)[0]) ;
         }
+
+        // $path = resource_path() . '/stanford-postagger-full-2018-02-27/';
+        // $value = implode(" ",$nodeValues);
+
+        // $pos = new \StanfordNLP\POSTagger(
+        //   $path . 'models/chinese-distsim.tagger',
+        //   $path . 'stanford-postagger-3.9.1.jar'
+        // );
+        // $result = $pos->tag(explode(' ', $value));
+        
+        // foreach ($result[0] as $key => $value) {
+        //     array_push($tags, $value[1]);
+        // }
         // dd($tags);
         $bab = $request->bab;
         $query_create="CREATE TEMPORARY TABLE patterns ( pattern varchar(20) )";
