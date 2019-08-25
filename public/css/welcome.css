@@ -1,0 +1,45 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body {    
+    margin: 0 !important;
+    padding: 0 !important;
+    height: 100%;
+}
+
+.container {
+    height: 100%;
+    width: 100%;
+}
+
+.header{
+    background-color: #ed76c5;
+    color: #636b6f;
+    height: 20%;
+    font-family: 'Nunito', sans-serif;
+    padding: 20px;
+}
+
+.flex-center {
+    padding: 20px;
+    flex: 1;
+    height: 80px;
+}
+
+.input{
+    height: 50px;
+}
+
+.result{
+    padding-left: 20px;
+}
+
+.green{
+    color: green
+}
+
+.red{
+    color: red
+}
