@@ -11,9 +11,7 @@
 |
 */
 
-Route::get('/', function () {
-    // return view('welcome');
-    phpinfo();
-});
+Route::get('/', 'PageController@index');
+Route::get('/duration', 'PageController@duration');
 
 // Route::resource("predict","GrammarController");
