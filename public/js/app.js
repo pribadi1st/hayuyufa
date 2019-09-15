@@ -44793,7 +44793,7 @@ var content = __webpack_require__(45);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(47)("081977b6", content, false, {});
+var update = __webpack_require__(47)("4a837016", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -44817,7 +44817,7 @@ exports = module.exports = __webpack_require__(46)(false);
 
 
 // module
-exports.push([module.i, "\n.container[data-v-2a146c12] {\r\n    width: 980px;\r\n    margin:auto;\r\n    margin-top: 60px;\n}\r\n", ""]);
+exports.push([module.i, "\n.container[data-v-2a146c12] {\n  width: 980px;\n  margin: auto;\n  margin-top: 60px;\n}\n", ""]);
 
 // exports
 
@@ -45199,23 +45199,51 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-    props: {
-        title: {
-            type: String,
-            default: ''
-        },
-        subTitle: {
-            type: String,
-            default: ''
-        }
+  props: {
+    title: {
+      type: String,
+      default: ""
     },
-    data: function data() {
-        return {
-            message: 'parent'
-        };
+    subTitle: {
+      type: String,
+      default: ""
+    },
+    pinyin: {
+      type: String,
+      default: ""
+    },
+    enDesc: {
+      type: String,
+      default: ""
+    },
+    pattern: {
+      type: Array,
+      default: function _default() {
+        return [{
+          key: "V + 时量补语",
+          example: ["咱们休息十分钟。", "A：你昨天预习了多长时间？", "B：预习了半个多小时。", "我打算在中国学四年。"]
+        }];
+      }
     }
+  },
+  data: function data() {
+    return {
+      message: "parent"
+    };
+  }
 });
 
 /***/ }),
@@ -45236,16 +45264,34 @@ var render = function() {
     ]),
     _vm._v(" "),
     _c("p", { staticClass: "description m-l-20 m-b-20" }, [
-      _vm._v(
-        "\n        时量补语是用来表达动作或状态持续时间的。时量补语表示动作行为或状态在一段时间内的持续，但主要是对动作行为或状态进行正常描述。\n    "
-      )
+      _vm._v("\n        " + _vm._s(_vm.pinyin) + "\n    ")
     ]),
     _vm._v(" "),
     _c("p", { staticClass: "description m-l-20 m-b-20" }, [
-      _vm._v(
-        "\n        Complement of duration is used to express the duration of an action or state. Time-qualifiers indicate the duration of an action or state over a period of time, but are primarily a description of the action or state.\n    "
-      )
+      _vm._v("\n        " + _vm._s(_vm.enDesc) + "\n    ")
     ]),
+    _vm._v(" "),
+    _c(
+      "ul",
+      { staticClass: "example" },
+      _vm._l(_vm.pattern, function(i) {
+        return _c("li", { key: i.key }, [
+          _c("p", { staticClass: "example-section" }, [_vm._v(_vm._s(i.key))]),
+          _vm._v(" "),
+          _c(
+            "ul",
+            { staticClass: "sub-example" },
+            _vm._l(i.example, function(j) {
+              return _c("li", { key: j }, [
+                _c("p", { staticClass: "example-text" }, [_vm._v(_vm._s(j))])
+              ])
+            }),
+            0
+          )
+        ])
+      }),
+      0
+    ),
     _vm._v(" "),
     _vm._m(0)
   ])

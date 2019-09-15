@@ -7,3 +7,132 @@
 
 // Bootstrap
 @import "~bootstrap-sass/assets/stylesheets/bootstrap";
+
+$spaceamounts: (5, 10, 15, 20, 25, 30, 35, 40);
+$flexamounts: (1,2,3,4);
+$sides: (top, bottom, left, right);
+$font-title: normal normal normal 40px/1.35em 'courier new',courier-ps-w01,courier-ps-w02,courier-ps-w10,monospace;
+$font-sub-title: normal normal normal 15px/1.875em raleway,sans-serif;
+$font-checker: normal normal normal 22px/1.41em 'courier new',courier-ps-w01,courier-ps-w02,courier-ps-w10,monospace;
+$font-description: normal normal normal 20px/1.67em raleway,sans-serif;
+$space-unit-s: 10px;
+$space-unit-m: 20px;
+
+$black: #000000;
+$radius: 5px;
+
+.divider {
+    height: 1px;
+    width: 100%;
+    border-top: 1px solid #{$black};
+}
+
+@each $space in $spaceamounts {
+    @each $side in $sides {
+        .m-#{str-slice($side, 0, 1)}-#{$space} {
+            margin-#{$side}: #{$space}px !important;
+        }
+    
+        .p-#{str-slice($side, 0, 1)}-#{$space} {
+            padding-#{$side}: #{$space}px !important;
+        }
+    }
+}
+
+@for $i from 1 through 4 {
+    .f-#{$i} {
+        display: flex;
+        flex: #{$i};
+    }
+}
+
+.title, .sub-title {
+    font: #{$font-title}
+}
+
+.description {
+    font: #{$font-description}
+}
+
+
+.header {
+    margin: auto;
+    width: 980px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 40px;
+    flex-direction: column;
+
+    .title {
+        cursor: pointer;
+        text-decoration: none;
+        color: inherit;
+        line-height: 1.35em;
+        font: #{$font-title};
+    }
+
+    .sub-title {
+        font: #{$font-sub-title};
+    }
+}
+
+.container {
+    .example {
+        .example-section {
+            font: $font-checker;
+        }
+
+        .example-text {
+            font: $font-description;
+        }
+    }
+
+    .checker {
+        border: 1px solid rgba(0, 0, 0, 1);
+        background-color: rgba(255, 255, 255, 1);
+        border-radius: #{$radius};
+        box-shadow: 0 1px 4px rgba(0, 0, 0, 0.6);
+        padding: $space-unit-m;
+
+        .header-text{
+            font: #{$font-checker};
+        }
+
+        .form-checker {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+
+            textarea {
+                border-radius: 0;
+                font: normal normal normal 18px/1.4em avenir-lt-w01_35-light1475496,sans-serif;
+                border-width: 2px;
+                resize: none;
+                background-color: rgba(255, 255, 255, 1);
+                box-sizing: border-box !important;
+                color: #000000;
+                border-style: solid;
+                border-color: rgba(145, 145, 145, 1);
+                padding: $space-unit-s;
+                margin: 0;
+                padding-top: 0.75em;
+                max-width: 100%;
+                /* min-width: 100%; */
+                overflow-y: auto;
+                -webkit-box-flex: 1;
+                -webkit-flex: 1;
+                flex: 1;
+            }
+
+            .f-1 {
+                .btn-checker {
+                    margin: auto;
+                    background-color: transparent;
+                    border: solid rgba(70, 98, 30, 1) 3px;
+                    cursor: pointer !important
+                }
+            }
+        }
+    }
+}

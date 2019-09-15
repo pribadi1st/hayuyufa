@@ -8,7 +8,7 @@
         <meta name="csrf-token" content="{{ csrf_token() }}">
         <title>Chinese Teak - @yield('title')</title>
         <!-- Fonts -->
-        <link rel="stylesheet" href="{{ asset('css/global.css') }}" />
+        <link rel="stylesheet" href="{{ asset('css/app.css') }}" />
         <!-- Styles -->
     </head>
     <body>

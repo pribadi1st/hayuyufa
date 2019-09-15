@@ -7,11 +7,22 @@
             {{ subTitle }}
         </p>
         <p class="description m-l-20 m-b-20">
-            时量补语是用来表达动作或状态持续时间的。时量补语表示动作行为或状态在一段时间内的持续，但主要是对动作行为或状态进行正常描述。
+            {{ pinyin }}
         </p>
         <p class="description m-l-20 m-b-20">
-            Complement of duration is used to express the duration of an action or state. Time-qualifiers indicate the duration of an action or state over a period of time, but are primarily a description of the action or state.
+            {{ enDesc }}
         </p>
+
+        <ul class="example">
+          <li v-for="i in pattern" :key="i.key">
+            <p class="example-section">{{ i.key }}</p>
+            <ul class="sub-example">
+              <li v-for="j in i.example" :key="j">
+                <p class="example-text">{{ j }}</p>
+              </li>
+            </ul>
+          </li>
+        </ul>
 
         <div class="checker p-20">
             <p class="header-text m-b-15">Check your grammar</p>
@@ -27,29 +38,51 @@
 </template>
 
 <script>
-  export default {
-    props: {
-        title: {
-            type: String,
-            default: ''
-        },
-        subTitle: {
-            type: String,
-            default: ''
-        }
+export default {
+  props: {
+    title: {
+      type: String,
+      default: ""
     },
-    data() {
-      return {
-        message: 'parent'
-      }
+    subTitle: {
+      type: String,
+      default: ""
+    },
+    pinyin: {
+      type: String,
+      default: ""
+    },
+    enDesc: {
+      type: String,
+      default: ""
+    },
+    pattern: {
+      type: Array,
+      default: () => [
+        {
+          key: "V + 时量补语",
+          example: [
+            "咱们休息十分钟。",
+            "A：你昨天预习了多长时间？",
+            "B：预习了半个多小时。",
+            "我打算在中国学四年。"
+          ]
+        }
+      ]
     }
-  };
+  },
+  data() {
+    return {
+      message: "parent"
+    };
+  }
+};
 </script>
 
 <style scoped>
 .container {
-    width: 980px;
-    margin:auto;
-    margin-top: 60px;
+  width: 980px;
+  margin: auto;
+  margin-top: 60px;
 }
 </style>
