@@ -19,6 +19,8 @@ $space-unit-s: 10px;
 $space-unit-m: 20px;
 
 $black: #000000;
+$success: hsl(141, 71%, 48%);
+$failed: hsl(348, 100%, 61%);
 $radius: 5px;
 
 .divider {
@@ -36,8 +38,38 @@ $radius: 5px;
         .p-#{str-slice($side, 0, 1)}-#{$space} {
             padding-#{$side}: #{$space}px !important;
         }
+
+        .m-h-#{str-slice($side, 0, 1)}-#{$space} {
+            margin-#{$side}: #{$space}px !important;
+        }
+    
+        .p-h-#{str-slice($side, 0, 1)}-#{$space} {
+            padding-#{$side}: #{$space}px !important;
+        }
+    }
+
+    .m-h-#{$space} {
+        margin-left: #{$space}px;
+        margin-right: #{$space}px;
+    }
+    
+    .m-v-#{$space} {
+        margin-top: #{$space}px;
+        margin-left: #{$space}px;
+    }
+
+    .p-v-#{$space} {
+        padding-top: #{$space}px;
+        padding-bottom: #{$space}px;
+    }
+
+    .p-h-#{$space} {
+        padding-left: #{$space}px;
+        padding-right: #{$space}px;
     }
 }
+
+
 
 @for $i from 1 through 4 {
     .f-#{$i} {
@@ -135,4 +167,27 @@ $radius: 5px;
             }
         }
     }
+}
+
+.is-marginless {
+    margin: 0px !important;
+}
+
+.navbar {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    .navbar-text {
+        font: normal normal normal 18px/1.4em raleway,sans-serif;
+        text-decoration: none;
+        color: $black;
+    }
+}
+
+.has-background-success {
+    background-color: $success !important;
+}
+
+.has-background-failed {
+    background-color: $failed !important;
 }

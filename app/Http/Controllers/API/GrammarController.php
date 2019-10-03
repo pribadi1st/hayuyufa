@@ -50,7 +50,7 @@ class GrammarController extends Controller
         //
         $validator = Validator::make($request->all(), [
             'grammar' => 'required|max:255',
-            'bab' => 'required|numeric',
+            'section' => 'required',
         ]);
 
         if ($validator->fails()) {
@@ -93,7 +93,7 @@ class GrammarController extends Controller
            array_push($tags,explode('/',$value)[1]) ;
            array_push($nodeValues,explode('/',$value)[0]) ;
         }
-        $bab = $request->bab;
+        $section = $request->section;
         $query_create="CREATE TEMPORARY TABLE patterns ( pattern varchar(20) )";
         $query_insert = "insert into patterns VALUES "; 
         $count=0;
@@ -104,22 +104,21 @@ class GrammarController extends Controller
              }else{
                  $query_insert.= "('%".$value."%');";    
              }
-                            
          }
-         $query_data ="select k.GrammarID,
-                   k.Struct,
-                   COUNT(k.GrammarID) AS Total
-                 FROM(
-                     SELECT a.*,p.pattern FROM Grammars a JOIN patterns p ON (a.Struct LIKE p.pattern)
+         $query_data ="select k.id,
+                   k.struct,
+                   COUNT(k.id) AS Total
+                FROM(
+                     SELECT a.*,p.pattern FROM Grammars a JOIN patterns p ON (a.struct LIKE p.pattern)
                      )as k".
-                 " where k.bab =".$bab.
-                 " GROUP BY k.GrammarID ORDER BY Total DESC LIMIT 1";
+                 " where k.section ='".$section.
+                 "' GROUP BY k.id ORDER BY Total DESC LIMIT 1";
          $query_drop = "drop TEMPORARY TABLE patterns";
          $res = DB::select($query_create);
          $res = DB::select($query_insert);
          $res_final = DB::select($query_data);
          $res = DB::select($query_drop);
-         $res_final=explode(" ",$res_final[0]->Struct);
+         $res_final=explode(" ",$res_final[0]->struct);
          $flags =array_fill(0,count($tags), 0); 
          foreach($res_final as $value){
              $key = array_search($value, $tags);

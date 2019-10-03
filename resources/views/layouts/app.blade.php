@@ -23,6 +23,15 @@
                 Chinese Grammar Checker
             </span>
             <div class="divider"></div>
+            <div class="navbar">
+                <a class="navbar-text" href="{{ url('/')}}">Home</a>
+                <div class="dropdown">
+                    <span class="navbar-text">Grammar</span>
+                    <div class="dropdown-content">
+                        <a class="navbar-text is-marginless"  href="{{ url('/duration')}}">Complement of duration (​时量补语)</a>
+                    </div>
+                </div>
+            </div>
         </div>
         @yield('content')
         <!-- @isset($flags)
@@ -45,3 +54,26 @@
         <script type="text/javascript" src="js/app.js"></script>
     </body>
 </html>
+
+<style>
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  top:35px;
+  right: -150px;
+  background-color: #f9f9f9;
+  min-width: 350px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  padding: 12px 16px;
+  z-index: 1;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+</style>
