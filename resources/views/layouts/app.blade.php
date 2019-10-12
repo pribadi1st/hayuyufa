@@ -29,6 +29,12 @@
                     <span class="navbar-text">Grammar</span>
                     <div class="dropdown-content">
                         <a class="navbar-text is-marginless"  href="{{ url('/duration')}}">Complement of duration (​时量补语)</a>
+                        <a class="navbar-text is-marginless"  href="{{ url('/direction')}}">Complement of direction (​趋向补语)</a>
+                        <a class="navbar-text is-marginless"  href="{{ url('/duration')}}">To be doing something with “着” (​V+着)</a>
+                        <a class="navbar-text is-marginless"  href="{{ url('/duration')}}">Adverbial (​地)</a>
+                        <a class="navbar-text is-marginless"  href="{{ url('/duration')}}">“Ba” Sentence (​“把”字句)</a>
+                        <a class="navbar-text is-marginless"  href="{{ url('/duration')}}">Existential Sentence</a>
+                        <a class="navbar-text is-marginless"  href="{{ url('/duration')}}">The passive voice (“被”字句​)</a>
                     </div>
                 </div>
             </div>

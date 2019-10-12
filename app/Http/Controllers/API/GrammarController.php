@@ -111,13 +111,15 @@ class GrammarController extends Controller
                 FROM(
                      SELECT a.*,p.pattern FROM Grammars a JOIN patterns p ON (a.struct LIKE p.pattern)
                      )as k".
-                 " where k.section ='".$section.
+                 " where k.section = '".$section.
                  "' GROUP BY k.id ORDER BY Total DESC LIMIT 1";
          $query_drop = "drop TEMPORARY TABLE patterns";
          $res = DB::select($query_create);
          $res = DB::select($query_insert);
          $res_final = DB::select($query_data);
          $res = DB::select($query_drop);
+         $res_final[0]->struct = str_replace("\n","",$res_final[0]->struct);
+         $res_final[0]->struct = str_replace("\r","",$res_final[0]->struct);
          $res_final=explode(" ",$res_final[0]->struct);
          $flags =array_fill(0,count($tags), 0); 
          foreach($res_final as $value){

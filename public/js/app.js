@@ -60,7 +60,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 10);
+/******/ 	return __webpack_require__(__webpack_require__.s = 11);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -70,7 +70,7 @@
 "use strict";
 
 
-var bind = __webpack_require__(3);
+var bind = __webpack_require__(4);
 var isBuffer = __webpack_require__(19);
 
 /*global toString:true*/
@@ -424,10 +424,10 @@ function getDefaultAdapter() {
   var adapter;
   if (typeof XMLHttpRequest !== 'undefined') {
     // For browsers use XHR adapter
-    adapter = __webpack_require__(5);
+    adapter = __webpack_require__(6);
   } else if (typeof process !== 'undefined') {
     // For node use HTTP adapter
-    adapter = __webpack_require__(5);
+    adapter = __webpack_require__(6);
   }
   return adapter;
 }
@@ -498,10 +498,16 @@ utils.forEach(['post', 'put', 'patch'], function forEachMethodWithData(method) {
 
 module.exports = defaults;
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5)))
 
 /***/ }),
 /* 3 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__(18);
+
+/***/ }),
+/* 4 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -519,7 +525,7 @@ module.exports = function bind(fn, thisArg) {
 
 
 /***/ }),
-/* 4 */
+/* 5 */
 /***/ (function(module, exports) {
 
 // shim for using process in browser
@@ -709,7 +715,7 @@ process.umask = function() { return 0; };
 
 
 /***/ }),
-/* 5 */
+/* 6 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -720,7 +726,7 @@ var settle = __webpack_require__(22);
 var buildURL = __webpack_require__(24);
 var parseHeaders = __webpack_require__(25);
 var isURLSameOrigin = __webpack_require__(26);
-var createError = __webpack_require__(6);
+var createError = __webpack_require__(7);
 var btoa = (typeof window !== 'undefined' && window.btoa && window.btoa.bind(window)) || __webpack_require__(27);
 
 module.exports = function xhrAdapter(config) {
@@ -896,7 +902,7 @@ module.exports = function xhrAdapter(config) {
 
 
 /***/ }),
-/* 6 */
+/* 7 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -921,7 +927,7 @@ module.exports = function createError(message, config, code, request, response) 
 
 
 /***/ }),
-/* 7 */
+/* 8 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -933,7 +939,7 @@ module.exports = function isCancel(value) {
 
 
 /***/ }),
-/* 8 */
+/* 9 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -959,7 +965,7 @@ module.exports = Cancel;
 
 
 /***/ }),
-/* 9 */
+/* 10 */
 /***/ (function(module, exports) {
 
 /* globals __VUE_SSR_CONTEXT__ */
@@ -1068,15 +1074,15 @@ module.exports = function normalizeComponent (
 
 
 /***/ }),
-/* 10 */
+/* 11 */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(11);
-module.exports = __webpack_require__(51);
+__webpack_require__(12);
+module.exports = __webpack_require__(54);
 
 
 /***/ }),
-/* 11 */
+/* 12 */
 /***/ (function(module, exports, __webpack_require__) {
 
 
@@ -1086,7 +1092,7 @@ module.exports = __webpack_require__(51);
  * building robust, powerful web applications using Vue and Laravel.
  */
 
-__webpack_require__(12);
+__webpack_require__(13);
 
 window.Vue = __webpack_require__(36);
 
@@ -1104,11 +1110,11 @@ var app = new Vue({
 });
 
 /***/ }),
-/* 12 */
+/* 13 */
 /***/ (function(module, exports, __webpack_require__) {
 
 
-window._ = __webpack_require__(13);
+window._ = __webpack_require__(14);
 
 /**
  * We'll load jQuery and the Bootstrap jQuery plugin which provides support
@@ -1117,9 +1123,9 @@ window._ = __webpack_require__(13);
  */
 
 try {
-  window.$ = window.jQuery = __webpack_require__(15);
+  window.$ = window.jQuery = __webpack_require__(16);
 
-  __webpack_require__(16);
+  __webpack_require__(17);
 } catch (e) {}
 
 /**
@@ -1128,7 +1134,7 @@ try {
  * CSRF token as a header based on the value of the "XSRF" token cookie.
  */
 
-window.axios = __webpack_require__(17);
+window.axios = __webpack_require__(3);
 
 window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
@@ -1164,7 +1170,7 @@ if (token) {
 // });
 
 /***/ }),
-/* 13 */
+/* 14 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global, module) {var __WEBPACK_AMD_DEFINE_RESULT__;/**
@@ -18281,10 +18287,10 @@ if (token) {
   }
 }.call(this));
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1), __webpack_require__(14)(module)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1), __webpack_require__(15)(module)))
 
 /***/ }),
-/* 14 */
+/* 15 */
 /***/ (function(module, exports) {
 
 module.exports = function(module) {
@@ -18312,7 +18318,7 @@ module.exports = function(module) {
 
 
 /***/ }),
-/* 15 */
+/* 16 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -28917,7 +28923,7 @@ return jQuery;
 
 
 /***/ }),
-/* 16 */
+/* 17 */
 /***/ (function(module, exports) {
 
 /*!
@@ -31503,12 +31509,6 @@ if (typeof jQuery === 'undefined') {
 
 
 /***/ }),
-/* 17 */
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__(18);
-
-/***/ }),
 /* 18 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -31516,7 +31516,7 @@ module.exports = __webpack_require__(18);
 
 
 var utils = __webpack_require__(0);
-var bind = __webpack_require__(3);
+var bind = __webpack_require__(4);
 var Axios = __webpack_require__(20);
 var defaults = __webpack_require__(2);
 
@@ -31551,9 +31551,9 @@ axios.create = function create(instanceConfig) {
 };
 
 // Expose Cancel & CancelToken
-axios.Cancel = __webpack_require__(8);
+axios.Cancel = __webpack_require__(9);
 axios.CancelToken = __webpack_require__(34);
-axios.isCancel = __webpack_require__(7);
+axios.isCancel = __webpack_require__(8);
 
 // Expose all/spread
 axios.all = function all(promises) {
@@ -31706,7 +31706,7 @@ module.exports = function normalizeHeaderName(headers, normalizedName) {
 "use strict";
 
 
-var createError = __webpack_require__(6);
+var createError = __webpack_require__(7);
 
 /**
  * Resolve or reject a Promise based on response status.
@@ -32141,7 +32141,7 @@ module.exports = InterceptorManager;
 
 var utils = __webpack_require__(0);
 var transformData = __webpack_require__(31);
-var isCancel = __webpack_require__(7);
+var isCancel = __webpack_require__(8);
 var defaults = __webpack_require__(2);
 var isAbsoluteURL = __webpack_require__(32);
 var combineURLs = __webpack_require__(33);
@@ -32301,7 +32301,7 @@ module.exports = function combineURLs(baseURL, relativeURL) {
 "use strict";
 
 
-var Cancel = __webpack_require__(8);
+var Cancel = __webpack_require__(9);
 
 /**
  * A `CancelToken` is an object that can be used to request cancellation of an operation.
@@ -44610,14 +44610,14 @@ exports.clearImmediate = (typeof self !== "undefined" && self.clearImmediate) ||
     attachTo.clearImmediate = clearImmediate;
 }(typeof self === "undefined" ? typeof global === "undefined" ? this : global : self));
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1), __webpack_require__(4)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1), __webpack_require__(5)))
 
 /***/ }),
 /* 40 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
-var normalizeComponent = __webpack_require__(9)
+var normalizeComponent = __webpack_require__(10)
 /* script */
 var __vue_script__ = __webpack_require__(41)
 /* template */
@@ -44740,11 +44740,11 @@ function injectStyle (ssrContext) {
   if (disposed) return
   __webpack_require__(44)
 }
-var normalizeComponent = __webpack_require__(9)
+var normalizeComponent = __webpack_require__(10)
 /* script */
 var __vue_script__ = __webpack_require__(49)
 /* template */
-var __vue_template__ = __webpack_require__(50)
+var __vue_template__ = __webpack_require__(53)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -45171,9 +45171,9 @@ module.exports = function listToStyles (parentId, list) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator__ = __webpack_require__(61);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator__ = __webpack_require__(50);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_axios__ = __webpack_require__(17);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_axios__ = __webpack_require__(3);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_axios__);
 
 
@@ -45260,10 +45260,7 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
     pattern: {
       type: Array,
       default: function _default() {
-        return [{
-          key: "V + 时量补语",
-          example: ["咱们休息十分钟。", "A：你昨天预习了多长时间？", "B：预习了半个多小时。", "我打算在中国学四年。"]
-        }];
+        return [];
       }
     }
   },
@@ -45306,26 +45303,38 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 
               case 3:
                 this.isChecking = true;
-                _context.next = 6;
+                _context.prev = 4;
+                _context.next = 7;
                 return __WEBPACK_IMPORTED_MODULE_1_axios___default.a.post('/api/predict', {
                   'grammar': this.sourceInput,
                   'section': this.theme
                 });
 
-              case 6:
+              case 7:
                 _ref2 = _context.sent;
                 result = _ref2.data.result;
 
                 this.resultOutput = [].concat(_toConsumableArray(result.flag));
                 this.sourceOuput = result.values.join(' ');
+                _context.next = 16;
+                break;
+
+              case 13:
+                _context.prev = 13;
+                _context.t0 = _context["catch"](4);
+
+                alert("oops, there's something error");
+
+              case 16:
+
                 this.isChecking = false;
 
-              case 11:
+              case 17:
               case "end":
                 return _context.stop();
             }
           }
-        }, _callee, this);
+        }, _callee, this, [[4, 13]]);
       }));
 
       function checkGrammar() {
@@ -45341,160 +45350,11 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 /* 50 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "container" }, [
-    _c("p", { staticClass: "title" }, [
-      _vm._v("\n        " + _vm._s(_vm.title) + "\n    ")
-    ]),
-    _vm._v(" "),
-    _c("p", { staticClass: "sub-title m-b-20" }, [
-      _vm._v("\n        " + _vm._s(_vm.subTitle) + "\n    ")
-    ]),
-    _vm._v(" "),
-    _c("p", { staticClass: "description m-l-20 m-b-20" }, [
-      _vm._v("\n        " + _vm._s(_vm.pinyin) + "\n    ")
-    ]),
-    _vm._v(" "),
-    _c("p", { staticClass: "description m-l-20 m-b-20" }, [
-      _vm._v("\n        " + _vm._s(_vm.enDesc) + "\n    ")
-    ]),
-    _vm._v(" "),
-    _c(
-      "ul",
-      { staticClass: "example" },
-      _vm._l(_vm.pattern, function(i) {
-        return _c("li", { key: i.key }, [
-          _c("p", { staticClass: "example-section" }, [_vm._v(_vm._s(i.key))]),
-          _vm._v(" "),
-          _c(
-            "ul",
-            { staticClass: "sub-example" },
-            _vm._l(i.example, function(j) {
-              return _c("li", { key: j }, [
-                _c("p", { staticClass: "example-text" }, [_vm._v(_vm._s(j))])
-              ])
-            }),
-            0
-          )
-        ])
-      }),
-      0
-    ),
-    _vm._v(" "),
-    _c("div", { staticClass: "checker p-20" }, [
-      _c("p", { staticClass: "header-text m-b-15" }, [
-        _vm._v("Check your grammar")
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "form-checker" }, [
-        _c("textarea", {
-          directives: [
-            {
-              name: "model",
-              rawName: "v-model",
-              value: _vm.sourceInput,
-              expression: "sourceInput"
-            }
-          ],
-          staticClass: "f-1",
-          attrs: { id: "", cols: "30", rows: "5", placeholder: "Sentence" },
-          domProps: { value: _vm.sourceInput },
-          on: {
-            input: function($event) {
-              if ($event.target.composing) {
-                return
-              }
-              _vm.sourceInput = $event.target.value
-            }
-          }
-        }),
-        _vm._v(" "),
-        _c("div", { staticClass: "f-1" }, [
-          !_vm.isChecking
-            ? _c(
-                "div",
-                {
-                  staticClass: "p-h-20 p-v-5 btn-checker is-loading",
-                  on: { click: _vm.checkGrammar }
-                },
-                [
-                  _c("p", { staticClass: "is-marginless" }, [
-                    _vm._v("\n                    Check\n                  ")
-                  ])
-                ]
-              )
-            : _c("div", { staticClass: "spinner" }, [
-                _c("div", { staticClass: "bounce1" }),
-                _vm._v(" "),
-                _c("div", { staticClass: "bounce2" }),
-                _vm._v(" "),
-                _c("div", { staticClass: "bounce3" })
-              ])
-        ]),
-        _vm._v(" "),
-        _c("textarea", {
-          directives: [
-            {
-              name: "model",
-              rawName: "v-model",
-              value: _vm.sourceOuput,
-              expression: "sourceOuput"
-            }
-          ],
-          staticClass: "f-1",
-          class: _vm.result,
-          attrs: { id: "", cols: "30", rows: "5", readonly: "" },
-          domProps: { value: _vm.sourceOuput },
-          on: {
-            input: function($event) {
-              if ($event.target.composing) {
-                return
-              }
-              _vm.sourceOuput = $event.target.value
-            }
-          }
-        })
-      ])
-    ])
-  ])
-}
-var staticRenderFns = []
-render._withStripped = true
-module.exports = { render: render, staticRenderFns: staticRenderFns }
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-2a146c12", module.exports)
-  }
-}
+module.exports = __webpack_require__(51);
+
 
 /***/ }),
 /* 51 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 52 */,
-/* 53 */,
-/* 54 */,
-/* 55 */,
-/* 56 */,
-/* 57 */,
-/* 58 */,
-/* 59 */,
-/* 60 */,
-/* 61 */
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__(62);
-
-
-/***/ }),
-/* 62 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /**
@@ -45519,7 +45379,7 @@ var oldRuntime = hadRuntime && g.regeneratorRuntime;
 // Force reevalutation of runtime.js.
 g.regeneratorRuntime = undefined;
 
-module.exports = __webpack_require__(63);
+module.exports = __webpack_require__(52);
 
 if (hadRuntime) {
   // Restore the original runtime.
@@ -45535,7 +45395,7 @@ if (hadRuntime) {
 
 
 /***/ }),
-/* 63 */
+/* 52 */
 /***/ (function(module, exports) {
 
 /**
@@ -46266,6 +46126,146 @@ if (hadRuntime) {
   (function() { return this })() || Function("return this")()
 );
 
+
+/***/ }),
+/* 53 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "container" }, [
+    _c("p", { staticClass: "title" }, [
+      _vm._v("\n        " + _vm._s(_vm.title) + "\n    ")
+    ]),
+    _vm._v(" "),
+    _c("p", { staticClass: "sub-title m-b-20" }, [
+      _vm._v("\n        " + _vm._s(_vm.subTitle) + "\n    ")
+    ]),
+    _vm._v(" "),
+    _c("p", { staticClass: "description m-l-20 m-b-20" }, [
+      _vm._v("\n        " + _vm._s(_vm.pinyin) + "\n    ")
+    ]),
+    _vm._v(" "),
+    _c("p", { staticClass: "description m-l-20 m-b-20" }, [
+      _vm._v("\n        " + _vm._s(_vm.enDesc) + "\n    ")
+    ]),
+    _vm._v(" "),
+    _c(
+      "ul",
+      { staticClass: "example" },
+      _vm._l(_vm.pattern, function(i) {
+        return _c("li", { key: i.key }, [
+          _c("p", { staticClass: "example-section" }, [_vm._v(_vm._s(i.key))]),
+          _vm._v(" "),
+          _c(
+            "ul",
+            { staticClass: "sub-example" },
+            _vm._l(i.example, function(j) {
+              return _c("li", { key: j }, [
+                _c("p", { staticClass: "example-text" }, [_vm._v(_vm._s(j))])
+              ])
+            }),
+            0
+          )
+        ])
+      }),
+      0
+    ),
+    _vm._v(" "),
+    _c("div", { staticClass: "checker p-20" }, [
+      _c("p", { staticClass: "header-text m-b-15" }, [
+        _vm._v("Check your grammar")
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "form-checker" }, [
+        _c("textarea", {
+          directives: [
+            {
+              name: "model",
+              rawName: "v-model",
+              value: _vm.sourceInput,
+              expression: "sourceInput"
+            }
+          ],
+          staticClass: "f-1",
+          attrs: { id: "", cols: "30", rows: "5", placeholder: "Sentence" },
+          domProps: { value: _vm.sourceInput },
+          on: {
+            input: function($event) {
+              if ($event.target.composing) {
+                return
+              }
+              _vm.sourceInput = $event.target.value
+            }
+          }
+        }),
+        _vm._v(" "),
+        _c("div", { staticClass: "f-1" }, [
+          !_vm.isChecking
+            ? _c(
+                "div",
+                {
+                  staticClass: "p-h-20 p-v-5 btn-checker is-loading",
+                  on: { click: _vm.checkGrammar }
+                },
+                [
+                  _c("p", { staticClass: "is-marginless" }, [
+                    _vm._v("\n                    Check\n                  ")
+                  ])
+                ]
+              )
+            : _c("div", { staticClass: "spinner" }, [
+                _c("div", { staticClass: "bounce1" }),
+                _vm._v(" "),
+                _c("div", { staticClass: "bounce2" }),
+                _vm._v(" "),
+                _c("div", { staticClass: "bounce3" })
+              ])
+        ]),
+        _vm._v(" "),
+        _c("textarea", {
+          directives: [
+            {
+              name: "model",
+              rawName: "v-model",
+              value: _vm.sourceOuput,
+              expression: "sourceOuput"
+            }
+          ],
+          staticClass: "f-1",
+          class: _vm.result,
+          attrs: { id: "", cols: "30", rows: "5", readonly: "" },
+          domProps: { value: _vm.sourceOuput },
+          on: {
+            input: function($event) {
+              if ($event.target.composing) {
+                return
+              }
+              _vm.sourceOuput = $event.target.value
+            }
+          }
+        })
+      ])
+    ])
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-2a146c12", module.exports)
+  }
+}
+
+/***/ }),
+/* 54 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
 
 /***/ })
 /******/ ]);

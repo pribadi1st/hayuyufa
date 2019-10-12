@@ -76,17 +76,7 @@ export default {
     },
     pattern: {
       type: Array,
-      default: () => [
-        {
-          key: "V + 时量补语",
-          example: [
-            "咱们休息十分钟。",
-            "A：你昨天预习了多长时间？",
-            "B：预习了半个多小时。",
-            "我打算在中国学四年。"
-          ]
-        }
-      ]
+      default: () => []
     }
   },
   data() {
@@ -116,12 +106,17 @@ export default {
         return 
       }
       this.isChecking = true
-      const { data: { result }} = await axios.post('/api/predict',{
+      try{
+        const { data: { result }} = await axios.post('/api/predict',{
         'grammar': this.sourceInput,
 	      'section': this.theme
       })
       this.resultOutput = [...result.flag]
       this.sourceOuput = result.values.join(' ')
+      }catch(e) {
+        alert("oops, there's something error")
+      }
+      
       this.isChecking = false
     }
   },

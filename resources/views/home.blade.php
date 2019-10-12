@@ -17,11 +17,11 @@
 
         <div class="home-content">
             <p class="header-content">About</h2>
-            <p class="sub-header">An Engaging Learning Resource</h3>
+            <!-- <p class="sub-header">An Engaging Learning Resource</h3> -->
             <p class="description">
-                We are a leading online learning platform, delivering access to our high quality videos to everyone with an internet connection.
-                Our content provides engaging and interesting learning opportunities, guiding viewers to identify their strengths and fill in their learning gaps.
-                When you participate in our Language Course, you’re joining a global community of like-minded individuals looking to expand their understanding.
+            Chineseteak.net provides Chinese Grammar checker which can help basic Chinese learners to identify the grammatical errors from any given text. The reason behind this is that the grammar check sentence is the fastest way and it can quickly detect the errors. Learners also can independently learn basic Chinese grammar.
+            <br><br>
+            Chineseteak.net helps basic Chinese learners gain confidence in themselves in learning Chinese grammar. Using and learning from Chineseteak.net, allows basic Chinese learners to get confidence and not repeating the same mistakes again.
             </p>
         </div>
 

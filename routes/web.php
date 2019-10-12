@@ -13,5 +13,11 @@
 
 Route::get('/', 'PageController@index');
 Route::get('/duration', 'PageController@duration');
+Route::get('/direction', 'PageController@direction');
+// Route::get('/duration', 'PageController@duration');
+// Route::get('/direction', 'PageController@direction');
+// Route::get('/duration', 'PageController@duration');
+// Route::get('/direction', 'PageController@direction');
+// Route::get('/duration', 'PageController@duration');
 
 // Route::resource("predict","GrammarController");
