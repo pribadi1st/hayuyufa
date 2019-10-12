@@ -111,8 +111,8 @@ class GrammarController extends Controller
                 FROM(
                      SELECT a.*,p.pattern FROM Grammars a JOIN patterns p ON (a.struct LIKE p.pattern)
                      )as k".
-                 " where k.section = '".$section.
-                 "' GROUP BY k.id ORDER BY Total DESC LIMIT 1";
+                 " where k.section like '%".$section.
+                 "%' GROUP BY k.id ORDER BY Total DESC LIMIT 1";
          $query_drop = "drop TEMPORARY TABLE patterns";
          $res = DB::select($query_create);
          $res = DB::select($query_insert);
